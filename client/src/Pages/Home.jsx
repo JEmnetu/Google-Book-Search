@@ -16,7 +16,7 @@ class Home extends Component {
             <Container fluid>
               <Head />
               <Search />
-              <Results />
+              
             </Container>
           </div>
         );

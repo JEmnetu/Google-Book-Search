@@ -1,30 +1,67 @@
 import React, { Component } from 'react';
+import Results from '../Results/Results';
 import API from '../../utils/API';
 
 class Search extends Component {
     state = { results:[] };
-    componentDidMount(){
-        API.getBooks()
-        .then((data)=>{
-            console.log(data);
-        })
-    }
-    
-    render() { 
-        return ( 
-        
-        <div id="search-div">
-            <h1>Search</h1>
 
-            <form id="search-form">
-            <label>Book:</label>
-            <input type="text" defaultValue="Search for a book"></input>
+  
+    render() { 
+
+        let searchBooks = (event)=>{
+            // API.queryBooks()
+            event.preventDefault();
+            console.log(event.target[0].value);
+            API.queryBooks(event.target[0].value)
+            .then((data)=>{
+                
+                this.setState({
+                    results:data.data.items
+                })
+              
+            })
+        }
+        // componentDidMount(){
             
-            <button id="search-button">Search</button>
-            </form>
-            
-            
-        </div> );
+        // }
+        if(this.state.results.length === 0){
+            return ( 
+       
+        
+                <div id="search-div">
+                    <h1>Search</h1>
+        
+                    <form id="search-form" onSubmit={searchBooks}>
+                    <label>Book:</label>
+                    <input type="text"></input>
+                    
+                    <button id="search-button" type="submit">Search</button>
+                    </form>
+                    
+                    
+                </div> );  
+        }
+
+        else{
+            return ( 
+       
+        
+                <div id="search-div">
+                    <h1>Search</h1>
+        
+                    <form id="search-form" onSubmit={searchBooks}>
+                    <label>Book:</label>
+                    <input type="text"></input>
+                    
+                    <button id="search-button" type="submit">Search</button>
+                    </form>
+
+                    <Results books={this.state.results} />
+                    
+                    
+                </div> );
+        }
+        
     }
 }
  

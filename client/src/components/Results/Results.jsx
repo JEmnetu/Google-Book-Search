@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-
+import {Row, Col, Container} from 'react-bootstrap';
 class Results extends Component {
     
-    state = { saved:[{id:1, name:"Book 1", author:"Jacob"}, {id:2, name:"Book 2", author:"Habtemariam"}] }
+    state = this.props.books;
     render() { 
 
+    //    let deleteBook = () =>{
+    //         console.log(`deleted the # $.id} book`);
+    //     }
 
-
-        if(this.state.saved.length === 0){
+        if(this.state.length === 0){
             return(
                 <div id="results-div">
                     <h1>No Results to Display</h1>
@@ -17,25 +19,39 @@ class Results extends Component {
         else{
             return ( 
 
-                <div id="results-div">
+                <Container id="results-div">
                 <h1>Results</h1>
-                {this.state.saved.map((result, i)=>{
+                {this.state.map((result, i)=>{
                     return (
-                      <div>
-                          <button  style={{float:"right"}}>Save</button>
-                          <button  style={{float:"right", marginRight:".3em"}}>View</button>
+                      <Row id="book-div">
+                          <Row id="first-row" className="flex" style={{marginTop:"1em"}} key={i}>
+                              <Col xs={3} >
+                                <h3>{result.volumeInfo.title}</h3>
+                                <h6>{result.volumeInfo.authors[0]}</h6>
+                                <img src={result.volumeInfo.imageLinks.smallThumbnail} alt="book image"/>
+                              </Col>
+                              <Col xs={5}>
+                                <p>{result.volumeInfo.description}</p>
+                              </Col>
+                              <Col xs={2} className="d-flex justify-content-between">
+                                <a href={result.accessInfo.webReaderLink} target="_blank"> <button>View</button></a>
+                                <button style={{marginLeft:0}}>Save</button>
+                                
+                              </Col>
+                          </Row>
+
                           
-                        <h5>{result.name}</h5>
-                        <p>Written by {result.author}</p>
-                      </div>
+                        </Row>
+    
+                      
                     );
                  
                 })}
-            
+                {console.log(this.state)}
     
                 
                 
-            </div>
+            </Container>
              );
         }
         

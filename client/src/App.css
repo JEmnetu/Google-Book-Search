@@ -26,10 +26,57 @@
 }
 
 #results-div{
-  margin-top:1.5em;
+  margin-top:5em;
   border: solid 4px black;
   border-radius: 4px;
-  height: 40em;
+  height: 50em;
   padding: 1em;
   overflow-y: scroll;
+}
+
+#book-div{
+
+  margin:1em 0 ;
+  background-color: lightblue;
+   border-radius: 15px;
+   height:20em;
+   overflow: auto;
+}
+
+.col-1{
+  padding: 0;
+  margin-left: .5em;
+  margin-top: .5em;
+}
+
+.col-2{
+  height:1em;
+}
+
+.col-3{
+  min-height: 40px;
+  max-height: 80px;
+}
+
+button{
+  width: 4em;
+  height: 1.5em;
+}
+
+img{
+  padding-left: 5em;
+  height:140px;
+  width: 120px;
+  margin: 0;
+  padding: 0;
+}
+
+div a{
+  margin:0;
+  padding: 0;
+}
+
+#first-row{
+  width: 100%;
+  padding-left: 3em;
 }
