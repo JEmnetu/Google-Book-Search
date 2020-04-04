@@ -6,3 +6,30 @@
 #nav{
   background-color: teal;
 }
+
+#search-div{
+  border: solid 4px black;
+  border-radius: 4px;
+  height: 12em;
+  padding: 1em;
+}
+
+#search-form{
+  margin-top:2.5em;
+}
+#search-form input{
+  margin-left: 1em;
+  width: 80%;
+}
+#search-button{
+  margin-left:1em;
+}
+
+#results-div{
+  margin-top:1.5em;
+  border: solid 4px black;
+  border-radius: 4px;
+  height: 40em;
+  padding: 1em;
+  overflow-y: scroll;
+}

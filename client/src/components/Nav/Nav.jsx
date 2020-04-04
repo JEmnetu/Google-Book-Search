@@ -1,9 +1,21 @@
 import React from 'react';
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import './Nav.css';
 
-const Nav = (props) => {
-    return ( <div id="nav">
-        <div className="flex justify-left pl-4 py-4">Google Books <span className="ml-16">Search</span> <span className="ml-4">Saved</span></div>
-    </div> );
+const NavBar = (props) => {
+    return (
+
+        <Navbar className='navbar-class'>
+        <Navbar.Brand href="#home">Google Books</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#home">Search</Nav.Link>
+            <Nav.Link href="#search">Saved</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    );
 }
  
-export default Nav;
+export default NavBar;
