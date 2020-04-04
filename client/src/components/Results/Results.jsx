@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Row, Col, Container} from 'react-bootstrap';
+import API from '../../utils/API';
 class Results extends Component {
     
     state = this.props.books;
@@ -8,6 +9,10 @@ class Results extends Component {
     //    let deleteBook = () =>{
     //         console.log(`deleted the # $.id} book`);
     //     }
+
+    const save = (book) =>{
+        API.saveBook(book);
+    }
 
         if(this.state.length === 0){
             return(
@@ -35,7 +40,7 @@ class Results extends Component {
                               </Col>
                               <Col xs={2} className="d-flex justify-content-between">
                                 <a href={result.accessInfo.webReaderLink} target="_blank"> <button>View</button></a>
-                                <button style={{marginLeft:0}}>Save</button>
+                                <button style={{marginLeft:0}} onClick={API.saveBook(result)}>Save</button>
                                 
                               </Col>
                           </Row>

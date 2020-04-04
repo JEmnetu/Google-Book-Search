@@ -12,10 +12,15 @@ mongoose.connect(MONGODB_URI, ()=>{
     console.log('App is connected to MongoDB!');
 })
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, "./client/public/index.html"));
-})
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+
+
 
 
 app.listen(PORT, ()=>{
