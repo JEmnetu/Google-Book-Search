@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import { Jumbotron } from 'react-bootstrap';
+import API from '../../utils/API';
 
 class Search extends Component {
-    state = { results:[] }
+    state = { results:[] };
+    componentDidMount(){
+        API.getBooks()
+        .then((data)=>{
+            console.log(data);
+        })
+    }
+    
     render() { 
         return ( 
         

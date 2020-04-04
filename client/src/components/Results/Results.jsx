@@ -31,7 +31,7 @@ class Results extends Component {
                     );
                  
                 })}
-                {console.log(this.state.saved[0])}
+            
     
                 
                 
